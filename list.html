@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Spots List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app2">
+        <nav>
+            <h1>
+                <div id="Park-req">
+                    <p id="req">PARKING LOCATION</p>
+                </div>
+            </h1>
+            <ul>
+                <li>
+                    <div id="Gedimino-pr">
+                        <button 
+                          onclick="selectSpot('Gedimino pr. 9A', 0.5)" 
+                          onmouseover="this.innerHTML='Free spots: 13'" 
+                          onmouseout="this.innerHTML='Gedimino pr. 9A'"
+                        >
+                          Gedimino pr. 9A
+                        </button>
+                      </div>
+                </li>
+                <li>
+                    <div id="Tilto-g">
+                        <button 
+                          onclick="selectSpot('Tilto g. 14', 0.6)" 
+                          onmouseover="this.innerHTML='Free spots: 11'" 
+                          onmouseout="this.innerHTML='Tilto g. 14'"
+                        >
+                            Tilto g. 14
+                        </button>
+                </li>
+                <li>
+                    <div id="Baravyko">
+                        <button 
+                            onclick="selectSpot('G. Baravyko g. 10', 0.5)"
+                            onmouseover="this.innerHTML='Free spots: 10'"
+                            onmouseout="this.innerHTML='Baravyko g. 10'"
+                            >G. Baravyko g. 10</button>
+                    </div>
+                </li>
+                <li>
+                    <div id="Seimyniskiu">
+                        <button 
+                            onclick="selectSpot('Šeimyniškių g. 23', 0.4)"
+                            onmouseover="this.innerHTML='Free spots: 19'"
+                            onmouseout="this.innerHTML='Šeimyniškių g. 23'"
+                            >Šeimyniškių g. 23</button>
+                    </div>
+                </li>
+                <li>
+                    <div id="Antakalnio">
+                        <button 
+                            onclick="selectSpot('Antakalnio g. 59', 0.3)"
+                            onmouseover="this.innerHTML='Free spots: 11'"
+                            onmouseout="this.innerHTML='Antakalnio g. 59'"
+                            >Antakalnio g. 59</button>
+                    </div>
+                </li>
+                <li>
+                    <div id="Gerulaicio">
+                        <button 
+                            onclick="selectSpot('V. Gerulaičio g. 1', 0.2)"
+                            onmouseover="this.innerHTML='Free spots: 0'"
+                            onmouseout="this.innerHTML='V. Gerulaičio g. 1'"
+                            >V. Gerulaičio g. 1</button>
+                    </div>
+                <li>
+                    <div id="Seskines">
+                        <button 
+                            onclick="selectSpot('Šeškinės g. 22A', 0.1)"
+                            onmouseover="this.innerHTML='Free spots: 35'"
+                            onmouseout="this.innerHTML='Šeškinės g. 22A'"
+                            >Šeškinės g. 22A</button>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <script>
+        function selectSpot(spotName, spotPrice) {
+          const spotData = {
+            name: spotName,
+            price: spotPrice
+          };
+          localStorage.setItem('selectedSpot', JSON.stringify(spotData));
+          window.location.href = 'index.html';
+        }
+      </script>
+
+</body>
+</html>
