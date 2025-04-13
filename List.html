@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Spots List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app2">
+        <div id="PARK-REQ">
+            <p id="REQ">PARKING LOCATIONS</p>
+        </div>
+        <nav>
+            <u1>
+                <li>
+                    <div id="Gedimino-pr">
+                        <button 
+                        onclick="selectSpot('Gedimino pr. 9A', 0.5, 13)" >Gedimino pr. 9A
+                        </button>
+                    </div>
+                    <div id="Tilto-g">
+                        <button 
+                        onclick="selectSpot('Tilto g. 14', 0.5, 11)" >Tilto g. 14
+                        </button>
+                    </div>
+                    <div id="Baravyko">
+                        <button 
+                        onclick="selectSpot('G. Baravyko g. 10', 0.5, 10)" >G. Baravyko g. 10
+                        </button>
+                    </div>
+                    <div id="Seimyniskiu">
+                        <button 
+                        onclick="selectSpot('Šeimyniškių g. 23', 0.4, 19)" >Šeimyniškių g. 23
+                        </button>
+                    </div>
+                    <div id="Antakalnio">
+                        <button 
+                        onclick="selectSpot('Antakalnio g. 59', 0.3, 11)" >Antakalnio g. 59
+                        </button>
+                    </div>
+                    <div id="Gerulaicio">
+                        <button 
+                        onclick="selectSpot('V. Gerulaičio g. 1', 0.2, 0)" >V. Gerulaičio g. 1
+                        </button>
+                    </div>
+                    <div id="Seskines">
+                        <button
+                        onclick="selectSpot('Šeškinės g. 22A', 0.1, 35)" >Šeškinės g. 22A
+                        </button>
+                    </div>
+                    <div id="Gostauto">
+                        <button
+                        onclick="selectSpot('A. Goštauto g. 13', 0.15, 14)" >A. Goštauto g. 13
+                        </button>
+                    </div>
+                    <div id="Liepyno">
+                        <button
+                        onclick="selectSpot('Liepyno g. 2', 0.25, 17)" >Liepyno g. 2
+                        </button>
+                    </div>
+                    <div id="Seliu">
+                        <button
+                        onclick="selectSpot('Sėlių g. 62', 0.3, 11)" >Sėlių g. 62
+                        </button>
+                    </div>
+                    <div id="Pamėnkalnio">
+                        <button
+                        onclick="selectSpot('Pamėnkalnio g. 40', 0.35, 9)" >Pamėnkalnio g. 40
+                        </button>
+                    </div>
+                    <div id="Strazdelio">
+                        <button
+                        onclick="selectSpot('A. Strazdelio g. 4', 0.4, 2)" >A. Strazdelio g. 4
+                        </button>
+                    </div>
+                    <div id="Upės">
+                        <button
+                        onclick="selectSpot('Upės g. 9', 0.95, 78)" >Upės g. 9
+                        </button>
+                    </div>
+
+                </li>
+                
+            </u1>
+        </nav>
+    </div>
+
+    <script>
+        function selectSpot(spotName, spotPrice, freespots) {
+          const spotData = {
+            name: spotName,
+            price: spotPrice,
+            slots: freespots
+          };
+          localStorage.setItem('selectedSpot', JSON.stringify(spotData));
+          window.location.href = 'Menu.html';
+        }
+      </script>
+
+</body>
+</html>
