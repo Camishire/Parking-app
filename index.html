@@ -7,30 +7,42 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body>    
     <div id="app">
-        <div id="LOCATION-SELECTION">
-            <p id="location">Adresas</p>
+        <div id="logo">
+            <img src="logo.png" alt="Logo">
         </div>
-
-        <div id="PARK-TIME">
-            <p id="park-time-display">00:00</p>
+        <div id="label1">
+            <p id="label1-text">Enter your license plate number</p>
         </div>
-
-        <div id="PARKING-PRICE">
-            <p id="time-display">Price to park here: 0.50€</p>
+        <div id="input1">
+            <input type="text" id="licenseInput" placeholder="ABC123">
         </div>
-
-        <div id="PARKING-CONST">
-            <p id="price-const">Please select your location.</p>
-        </div>
-
-        <div id="buttons">
-            <button onclick="toggleParkingTime()" id="toggle-button">START</button>
-            <button onclick="window.location.href='list.html'">SPOTS</button>
+        <div id="submit">
+            <button onclick="LicensePlate()" id="button1">
+                SUBMIT
+            </button>
         </div>
     </div>
 
-    <script src="index.js"></script>
+    <script>
+        function LicensePlate() {
+            const numbers = document.getElementById('licenseInput').value.trim();
+            const licensePlatePattern = /^[A-Za-z]{3}[0-9]{3}$/;
+    
+            if (numbers) {
+                if (licensePlatePattern.test(numbers)) {
+                    localStorage.setItem('licensePlate', numbers);
+                    window.location.href = 'Menu.html';
+                } else {
+                    alert('License plate must have 3 letters followed by 3 numbers (e.g., ABC123).');
+                    document.getElementById('licenseInput').focus();
+                }
+            } else {
+                alert('Please enter a valid license plate number');
+                document.getElementById('licenseInput').focus();
+            }
+        }
+    </script>
 </body>
 </html>
