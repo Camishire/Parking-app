@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app">
+        <div id="BOOKING-INFORMATION">
+            <p id="book-info">BOOKING INFORMATION</p>
+        </div>
+
+        <div id="RESERVATION-LOCATION">
+            <p id="res-loc">Parking location</p>
+        </div>
+
+        <div class="custom-select" style="width:200px;">
+            <select>
+              <option value="0">-</option>
+              <option value="1">Gedimino pr. 9A</option>
+              <option value="2">Tilto g. 14</option>
+              <option value="3">G. Baravyko g. 10</option>
+              <option value="4">Šeimyniškių g. 23</option>
+              <option value="5">Antakalnio g. 59</option>
+              <option value="6">V. Gerulaičio g. 1</option>
+              <option value="7">Šeškinės g. 22A</option>
+              <option value="8">A. Goštauto g. 13</option>
+              <option value="9">Liepyno g. 2</option>
+              <option value="10">Sėlių g. 62</option>
+              <option value="11">Pamėnkalnio g. 40</option>
+              <option value="12">A. Strazdelio g. 4</option>
+              <option value="13">Upės g. 9</option>
+            </select>
+          </div>
+
+        <div id="RESERVATION-TIME-LABEL">
+            <p id="res-time">Reservation time</p>
+        </div>
+
+        <div id="RESERVATION-TIME"> 
+                <input type="number" id="startH" placeholder="00">
+                <p id="label2">:</p>
+                <input type="number" id="startM" placeholder="00">
+                <p id="label3"> - </p>
+                <input type="number" id="EndH" placeholder="00">
+                <p id="label4">:</p>
+                <input type="number" id="EndM" placeholder="00">
+        </div>
+
+        <div id="RESERVE-BUTTON">   
+            <button onclick="window.location.href='Menu.html'">BOOK</button>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
