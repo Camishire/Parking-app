@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app">
+        <div id="LOCATION-SELECTION">
+            <p id="location">ADDRESS</p>
+        </div>
+
+        <div id="settings">
+            <img src="settings.png" alt="settings">
+        </div>
+
+        <div id="LICENSE-PLATE">
+            <p id="CN">LICENSE PLATE</p>
+        </div>
+
+        <div id="PARK-TIME">
+            <p id="park-time-display">00:00</p>
+        </div>
+
+        <div id="Logo1">
+            <img src="logo.png" alt="Logo1">
+        </div>
+
+        <div id="PARKING-PRICE">
+            <p id="time-display">0.00€</p>
+        </div>
+
+        <div id="PARKING-CONST">
+            <p id="price-const">Please select your location.</p>
+        </div>
+
+        <div id="PARKING-SPOTS">
+            <p id="parking-spot"> Free spots : ...</p>
+        </div>
+
+        <div id="buttons">
+            <button onclick="toggleParkingTime()" id="toggle-button">START</button>
+            <button onclick="window.location.href='List.html'">SPOTS</button>
+            <button onclick="window.location.href='Book.html'">BOOK</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
