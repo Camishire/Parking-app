@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Spots List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <div id="MONEY-TOTAL">
+            <p id="caption1">YOUR TOTAL IS</p>
+            <p id="totalamount"></p>
+        </div>
+
+        <div id="MONEY-REQ">
+            <p id="MO-REQ">SELECT YOUR</p>
+            <p id="MO-REQ2">PAYMENT METHOD</p>
+        </div>
+
+        <div id="PAYMENT-METHODS">
+            <button onclick="window.location.href='Menu.html'" id="gpay"><img src="gpay.png" alt="gpay"></button>
+            <button onclick="window.location.href='Menu.html'" id="apple"><img src="applepay.png" alt="apple"></button>
+            <button onclick="window.location.href='Menu.html'" id="credit"><img src="mastercard.png" alt="card"></button>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const storedTotal = localStorage.getItem('parkingTotal');
+    if (storedTotal) {
+        document.getElementById('totalamount').textContent = `${storedTotal}€`;
+    } else {
+        document.getElementById('totalamount').textContent = "No payment data found";
+    }
+    });
+    </script>
+</body>
+</html>
