@@ -3,18 +3,27 @@ let isParkingActive = false;
 let pricePerMinute = 0.1;
 let secondsElapsed = 0;
 let selectedSpot = null;
+let freespotsno = 0;
 
 window.onload = function() {
+    const plate = localStorage.getItem('licensePlate');
+    if (plate) {
+        document.getElementById('CN').textContent = plate;
+    }
     document.getElementById("time-display").innerText = `0.00€`;
+    
     const storedData = localStorage.getItem('selectedSpot');
     if (storedData) {
         const spotData = JSON.parse(storedData);
         selectedSpot = spotData.name;
         pricePerMinute = spotData.price;
+        freespotsno = spotData.slots;
         
         document.getElementById('location').textContent = selectedSpot;
         document.getElementById('price-const').textContent = 
             `Price to park here: ${pricePerMinute.toFixed(2)}€/min`;
+        document.getElementById('parking-spot').textContent=
+            `Free spots : ${freespotsno}`;
     }
 };
 
@@ -28,6 +37,11 @@ function toggleParkingTime() {
             alert("Please select a parking spot first!");
             return;
         }
+        if (!localStorage.getItem('licensePlate')) {
+            alert("Please enter your license plate first!");
+            window.location.href = '1.html';
+            return;
+        }
         
         isParkingActive = true;
         button.innerText = "STOP";
@@ -36,11 +50,18 @@ function toggleParkingTime() {
     } else {
         clearInterval(timerInterval);
         const totalPrice = (secondsElapsed / 60 * pricePerMinute).toFixed(2);
-        priceDisplay.innerText = `Total: ${totalPrice}€`;
-        button.innerText = "START";
+        priceDisplay.innerText = `Total : ${totalPrice}€`;
+        button.innerText = "PAY";
         isParkingActive = false;
-        
         saveParkingSession(selectedSpot, secondsElapsed, totalPrice);
+
+        button.onclick = function() {
+            saveParkingSession(selectedSpot, secondsElapsed, totalPrice);
+            button.innerText="START";
+            const totalPrice1 = (secondsElapsed / 60 * pricePerMinute).toFixed(2);
+            localStorage.setItem('parkingTotal', totalPrice1);
+            window.location.href = 'Payment.html';
+        };
     }
 }
 
@@ -67,7 +88,8 @@ function saveParkingSession(spot, duration, price) {
         spot: spot,
         duration: duration,
         price: price,
-        date: new Date().toISOString()
+        date: new Date().toISOString(),
+        licensePlate: localStorage.getItem('licensePlate')
     };
     console.log("Parking session:", session);
 }
